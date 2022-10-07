@@ -10,9 +10,9 @@ import {
 
 export async function registerNewUser(
   req: Request,
-  res: Response<UserView, { signupInfo: UserRequest }>,
+  res: Response<UserView, { reqBody: UserRequest }>,
 ): Promise<Response<UserView>> {
-  const requestBody: UserRequest = res.locals.signupInfo;
+  const requestBody: UserRequest = res.locals.reqBody;
   const user: UserCreationData = userRequestToCreationData(requestBody);
   const createdUser: UserView = await userService.createNewUser(user);
   return res.status(201).json(createdUser);
