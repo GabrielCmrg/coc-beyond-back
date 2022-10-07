@@ -1,0 +1,28 @@
+{
+  "client": "Thunder Client",
+  "collectionName": "coc-beyond",
+  "dateExported": "2022-10-07T22:59:06.792Z",
+  "version": "1.1",
+  "folders": [],
+  "requests": [
+    {
+      "_id": "ac17e0e1-695e-46b9-a7ab-161b6697ec5f",
+      "colId": "a17c2e37-d86c-4f88-9eb7-e13f76e9fed1",
+      "containerId": "",
+      "name": "Create account",
+      "url": "{{base_url}}/signup",
+      "method": "POST",
+      "sortNum": 10000,
+      "created": "2022-10-07T22:58:40.565Z",
+      "modified": "2022-10-07T22:58:40.565Z",
+      "headers": [],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"email\": \"{{email}}\",\n  \"password\": \"{{password}}\",\n  \"confirmPassword\": \"{{password}}\"\n}",
+        "form": []
+      },
+      "tests": []
+    }
+  ]
+}
