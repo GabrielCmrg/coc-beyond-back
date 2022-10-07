@@ -13,3 +13,10 @@ export function userToView(user: User): UserView {
     email: user.email,
   };
 }
+
+export function userRequestToCreationData(user: UserRequest): UserCreationData {
+  return {
+    email: user.email,
+    password: user.password,
+  };
+}
