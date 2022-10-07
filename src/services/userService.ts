@@ -1,3 +1,5 @@
+import bcrypt from 'bcrypt';
+
 import { conflictError } from '../exceptions';
 import { userRepository } from '../repositories';
 import {
@@ -17,7 +19,12 @@ export async function createNewUser(
     throw conflictError('This e-mail is in use.');
   }
 
-  const createdUser: User = await userRepository.create(userCandidate);
+  const hashPassword: string = bcrypt.hashSync(userCandidate.password, 10);
+  const userToCreate: UserCreationData = {
+    email: userCandidate.email,
+    password: hashPassword,
+  };
+  const createdUser: User = await userRepository.create(userToCreate);
   const returnUser: UserView = userToView(createdUser);
   return returnUser;
 }
