@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node dist/server.js",
-    "build": "tsc"
+    "build": "tsc",
+    "dev": "nodemon src/server.ts"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +24,7 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-prettier": "^4.2.1",
+    "nodemon": "^2.0.20",
     "prettier": "^2.7.1",
     "prisma": "^4.4.0",
     "ts-node": "^10.9.1",
