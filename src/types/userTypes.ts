@@ -7,7 +7,7 @@ export type UserRequest = UserCreationData & {
   confirmPassword: string;
 };
 
-export function UserToView(user: User): UserView {
+export function userToView(user: User): UserView {
   return {
     id: user.id,
     email: user.email,
