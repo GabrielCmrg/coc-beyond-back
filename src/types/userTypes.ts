@@ -6,3 +6,10 @@ export type UserView = Omit<User, 'password'>;
 export type UserRequest = UserCreationData & {
   confirmPassword: string;
 };
+
+export function UserToView(user: User): UserView {
+  return {
+    id: user.id,
+    email: user.email,
+  };
+}
