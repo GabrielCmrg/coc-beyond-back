@@ -6,7 +6,7 @@
 
 ## :clipboard: Description
 
-Playing RPG is a very enjoyable activity, and it is really nice to meet with your friends and play together. But it is a litte boring to create a character sheet, mark it with pencil so you can change the inputs, and managing the character sheet in general. For very popular sytems like D&D there is a lot of online tools that helps you to do this tasks, such as [D&D Beyond](https://www.dndbeyond.com/). But simpler systems like _Call of Cthulhu_ there aren't a lot of tools available. Thinking on that i decided to create my own character sheet creator and manager. I Hope that in a near future i will be able to create such an amazing and complete tool as _D&D Beyond_ wich is obviously my inpiration. This is a learning project thogh, so feel free to clone or fork this repository, create your own manager with you favourite RPG system, and learn as much as you can.
+Playing RPG is a very enjoyable activity, and it is really nice to meet with your friends and play together. But it is a litte boring to create a character sheet, mark it with pencil so you can change the inputs, and managing the character sheet in general. For very popular sytems like D&D there is a lot of online tools that helps you to do these tasks, such as [D&D Beyond](https://www.dndbeyond.com/). But, for simpler systems like _Call of Cthulhu_ there aren't a lot of tools available. Thinking about that I decided to create my own character sheet creator and manager. I Hope that in a near future I will be able to create such an amazing and complete tool as _D&D Beyond_ wich is obviously my inpiration. This is a learning project thogh, so feel free to clone or fork this repository, create your own manager with you favourite RPG system, and learn as much as you can.
 
 ---
 
@@ -29,7 +29,7 @@ Playing RPG is a very enjoyable activity, and it is really nice to meet with you
 - Env variables
 - Layared Architecture
 
-I opted to use this technologies because i'm currently studying it and because i'm more confident with them, since i'm more familiar with.
+I opted to use these technologies because I'm currently studying it and because I'm more confident with them, since I'm more familiar with.
 
 ---
 
