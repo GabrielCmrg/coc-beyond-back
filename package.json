@@ -4,12 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npm run unit",
+    "test": "npm run unit && npm run integration",
     "start": "node dist/server.js",
     "build": "tsc",
     "dev": "nodemon src/server.ts",
     "pretest": "dotenv -e .env.test prisma migrate reset -- -f",
-    "unit": "dotenv -e .env.test jest -- -i --coverage --testPathPattern=tests/unit"
+    "unit": "dotenv -e .env.test jest -- -i --coverage --testPathPattern=tests/unit",
+    "integration": "dotenv -e .env.test jest -- -i --testPathPattern=tests/integration"
   },
   "keywords": [],
   "author": "",
