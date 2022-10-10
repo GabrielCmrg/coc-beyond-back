@@ -55,6 +55,10 @@ POST /signup
 
 ## :checkered_flag: Running the Application
 
+You can run the application configuring your [node](#node-environment) environment or with [docker](#docker-environment).
+
+### Node environment
+
 This project was created using `node` on version `v16.15.1` and `npm` on version `8.11.0`, so it is recommended to use this versions. It also uses `postgres` on version `14.5` on your machine so you'll need to install that too.
 
 First, clone this repository in your machine:
@@ -86,6 +90,22 @@ Or, if you wish, you can build and run the production version with:
 ```
 npm run build && npm start
 ```
+
+### Docker environment
+
+Alternatively, you can start the application using `docker`. I created the scripts for the image and the containers with `Docker version 20.10.18` and `docker-compose version 1.29.2`, using these versions is advised. Install both of them, clone this repository using the instructions above, create the `.env` file based on `.env.example`, and, if you are building for the first time run:
+
+```
+docker-compose up --build
+```
+
+For every subsequent start just run:
+
+```
+docker-compose up
+```
+
+**Note that you need to be in the same folder as the `Dockerfile` and `docker-compose.yml` files.**
 
 ---
 
