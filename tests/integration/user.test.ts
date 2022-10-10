@@ -3,6 +3,7 @@ import joi from 'joi';
 
 import app from '../../src/app';
 import client from '../../src/config/database';
+import * as user from '../factories/userFactory';
 
 describe('POST /signup', () => {
   beforeEach(async () => {
@@ -10,11 +11,7 @@ describe('POST /signup', () => {
   });
 
   it('Should create account succesfully', async () => {
-    const userToCreate = {
-      email: 'controll@email.com',
-      password: 'secret',
-      confirmPassword: 'secret',
-    };
+    const userToCreate = user.signupInfo();
     const returnSchema = joi.object({
       id: joi.number().integer().greater(0).required(),
       email: joi.string().email().required(),
