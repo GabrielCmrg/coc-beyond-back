@@ -31,6 +31,13 @@ describe('POST /signup', () => {
     expect(result.status).toBe(409);
   });
 
+  it('Should fail if the password is not confirmed correctly', async () => {
+    const userToCreate = user.signupInfo();
+    userToCreate.confirmPassword = 'different password';
+    const result = await supertest(app).post('/signup').send(userToCreate);
+    expect(result.status).toBe(422);
+  });
+
   afterAll(async () => {
     await client.$disconnect();
   });
