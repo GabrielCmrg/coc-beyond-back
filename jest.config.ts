@@ -9,5 +9,6 @@ module.exports = {
     '<rootDir>/src/repositories',
     '<rootDir>/src/types',
     '<rootDir>/src/services/index.ts',
+    '<rootDir>/tests/factories',
   ],
 };
