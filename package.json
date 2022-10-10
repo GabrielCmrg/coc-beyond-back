@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "npm run unit && npm run integration",
-    "start": "node dist/server.js",
+    "generate": "npx prisma generate",
+    "migrate:prod": "npx prisma migrate deploy",
+    "migrate:dev": "npx prisma migrate dev",
+    "start": "npm run migrate:prod && npm run generate && node dist/src/server.js",
     "build": "tsc",
     "dev": "nodemon src/server.ts",
     "pretest": "dotenv -e .env.test prisma migrate reset -- -f",
