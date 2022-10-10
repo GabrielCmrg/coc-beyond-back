@@ -1,0 +1,20 @@
+name: TestOnPullRequest
+on: [pull_request]
+jobs:
+  TestAndBuild:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Create env files
+        uses: SpicyPizza/create-envfile@v1.3
+        with:
+          envkey_DATABASE_URL: ${{ secrets.DATABSE_URL }}
+          envkey_POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
+          envkey_POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
+          envkey_POSTGRES_DB: coc_beyond_test
+          file_name: .env.test
+      - name: Run tests
+        run: npm run docker:test
+      - name: Run build
+        run: npm i && npm run build
