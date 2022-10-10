@@ -22,6 +22,15 @@ describe('POST /signup', () => {
     expect(validation.error).toBeFalsy();
   });
 
+  it('Should fail if the email is in use', async () => {
+    const userToCreate = user.signupInfo();
+    await client.user.create({
+      data: { email: userToCreate.email, password: userToCreate.password },
+    });
+    const result = await supertest(app).post('/signup').send(userToCreate);
+    expect(result.status).toBe(409);
+  });
+
   afterAll(async () => {
     await client.$disconnect();
   });
