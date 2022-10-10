@@ -8,3 +8,10 @@ export function signupInfo() {
     confirmPassword: password,
   };
 }
+
+export function createInfo() {
+  return {
+    email: faker.internet.email(),
+    password: faker.internet.password(),
+  };
+}

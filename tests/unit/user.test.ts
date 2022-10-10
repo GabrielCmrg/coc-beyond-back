@@ -2,6 +2,7 @@ import bcrypt from 'bcrypt';
 
 import { userService } from '../../src/services';
 import { userRepository } from '../../src/repositories';
+import * as user from '../factories/userFactory';
 
 describe('Create user', () => {
   beforeEach(() => {
@@ -11,10 +12,7 @@ describe('Create user', () => {
 
   it('Should check if the email is in use', async () => {
     // arrange
-    const userToCreate = {
-      email: 'controll@email.com',
-      password: 'secret',
-    };
+    const userToCreate = user.createInfo();
     jest.spyOn(userRepository, 'getByEmail').mockResolvedValue(null);
     jest
       .spyOn(userRepository, 'create')
@@ -29,10 +27,7 @@ describe('Create user', () => {
 
   it('Should throw if the email is in use', async () => {
     // arrange
-    const userToCreate = {
-      email: 'controll@email.com',
-      password: 'secret',
-    };
+    const userToCreate = user.createInfo();
     jest
       .spyOn(userRepository, 'getByEmail')
       .mockResolvedValue({ ...userToCreate, id: 1 });
@@ -46,10 +41,7 @@ describe('Create user', () => {
 
   it('Should hash the password before create', async () => {
     // arrange
-    const userToCreate = {
-      email: 'controll@email.com',
-      password: 'secret',
-    };
+    const userToCreate = user.createInfo();
     const hashedPassword = 'hashed';
     jest.spyOn(userRepository, 'getByEmail').mockResolvedValue(null);
     jest.spyOn(bcrypt, 'hashSync').mockReturnValue(hashedPassword);
