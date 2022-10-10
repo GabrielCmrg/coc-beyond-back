@@ -50,10 +50,9 @@ describe('Create user', () => {
       email: 'controll@email.com',
       password: 'secret',
     };
+    const hashedPassword = 'hashed';
     jest.spyOn(userRepository, 'getByEmail').mockResolvedValue(null);
-    jest
-      .spyOn(bcrypt, 'hashSync')
-      .mockImplementation((input) => input as string);
+    jest.spyOn(bcrypt, 'hashSync').mockReturnValue(hashedPassword);
     jest
       .spyOn(userRepository, 'create')
       .mockResolvedValue({ ...userToCreate, id: 1 });
@@ -63,5 +62,9 @@ describe('Create user', () => {
 
     // assert
     expect(bcrypt.hashSync).toBeCalled();
+    expect(userRepository.create).toBeCalledWith({
+      email: userToCreate.email,
+      password: hashedPassword,
+    });
   });
 });
