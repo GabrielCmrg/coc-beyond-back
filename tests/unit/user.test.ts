@@ -24,4 +24,21 @@ describe('Create user', () => {
     // assert
     expect(userRepository.getByEmail).toBeCalled();
   });
+
+  it('Should throw if the email is in use', async () => {
+    // arrange
+    const userToCreate = {
+      email: 'controll@email.com',
+      password: 'secret',
+    };
+    jest
+      .spyOn(userRepository, 'getByEmail')
+      .mockResolvedValue({ ...userToCreate, id: 1 });
+
+    // act
+    const promise = userService.createNewUser(userToCreate);
+
+    // assert
+    await expect(promise).rejects.toBeTruthy();
+  });
 });
