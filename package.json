@@ -14,7 +14,8 @@
     "dev": "nodemon src/server.ts",
     "pretest": "dotenv -e .env.test prisma migrate reset -- -f",
     "unit": "dotenv -e .env.test jest -- -i --coverage --testPathPattern=tests/unit",
-    "integration": "dotenv -e .env.test jest -- -i --testPathPattern=tests/integration"
+    "integration": "dotenv -e .env.test jest -- -i --testPathPattern=tests/integration",
+    "docker:test": "docker-compose -f docker-compose.test.yml run node_app npm test"
   },
   "keywords": [],
   "author": "",
