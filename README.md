@@ -107,6 +107,8 @@ docker-compose up
 
 **Note that you need to be in the same folder as the `Dockerfile` and `docker-compose.yml` files.**
 
+**Note that the `.env` file will be used inside the docker context, so the postgres user, database ulr and etc. are for that context.**
+
 ---
 
 ## :test_tube: Running tests
@@ -116,6 +118,14 @@ For you to run the tests you will need to create a `.env.test` file with the sam
 ```
 npm test
 ```
+
+If you want to, you can run the tests within docker too. Create the `.env.test` file using the same method as above, then run:
+
+```
+npm run docker:test
+```
+
+**Note that the `.env.test` file will be used inside the docker context, so the postgres user, database ulr and etc. are for that context.**
 
 There is also a collection with the important requests, and you can run then all at once to see exactly what is needed on each route, and exactly what it responds. In order for them to work you will need to configure a environment on your thunder client. The variables needed are on `.env.example`.
 
